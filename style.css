@@ -8,6 +8,7 @@ html {
 }
 body {
 	font-family: poppins;
+	background-color: #e0f7fa;
 }
 ul, ul.nav {
 	list-style: none;
@@ -101,67 +102,110 @@ section p {
 	padding: 0 20px;
 	line-height: 2;
 }
+/* Keyframes for flow-in effect */
+@keyframes flow-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px); /* Start from above */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at normal position */
+    }
+}
+
 .banner-area {
-	position: relative;
-	justify-content: center;
-	min-height: 100vh;
-	color: #fff;
-	text-align: center;
+    position: relative;
+    justify-content: center;
+    min-height: 100vh;
+    color: #fff;
+    text-align: center;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-30px); /* Initially off-screen */
+    animation: flow-in 1s ease-out forwards; /* Apply animation */
 }
+
+/* Background Image */
 .banner-area .banner-img {
-	background-image: url(images/backgroun.png);
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	-webkit-background-size: cover;
-	background-size: cover;
-	z-index: -1;
-	background-position: center center;
+    background-image: url(images/backgroun.png);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    z-index: -1;
+    background-position: center center;
 }
+
 .banner-area .banner-img::after {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: #000;
-	opacity: .7;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .7;
 }
+
+/* Title */
 .banner-area h1 {
-	margin-bottom: 15px;
-	font-size: 65px;
-	text-transform: uppercase;
+    margin-bottom: 15px;
+    font-size: 65px;
+    text-transform: uppercase;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-30px); /* Initially above */
+    animation: flow-in 1s ease-out forwards; /* Apply animation */
+    animation-delay: 0.2s; /* Delay the animation for the heading */
 }
+
 .banner-area h1 span {
-	color:#0e9af7;
+    color: #0e9af7;
 }
+
+/* Subtitle */
 .banner-area h3 {
-	font-size: 25px;
-	font-weight: 100;
-	text-transform: uppercase;
+    font-size: 25px;
+    font-weight: 100;
+    text-transform: uppercase;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-30px); /* Initially above */
+    animation: flow-in 1s ease-out forwards; /* Apply animation */
+    animation-delay: 1s; /* Delay the animation for the subtitle */
 }
+
+/* Button */
 .banner-area a.banner-btn {
-	padding: 15px 35px;
-	background: #bf0a30;
-	text-transform: uppercase;
+    padding: 15px 35px;
+    background: #bf0a30;
+    text-transform: uppercase;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-30px); /* Initially above */
+    animation: flow-in 1s ease-out forwards; /* Apply animation */
+    animation-delay: 3s; /* Delay the animation for the button */
 }
-@media (max-width:800px) {
-	.banner-area {
-		min-height: 600px;
-	}
-	.banner-area h1 {
-		font-size: 27px;
-	}
-	.banner-area h3 {
-		font-size: 20px;
-	}
-	.banner-area a.banner-btn {
-		padding: 8px 20px;
-	}
+
+/* Media Queries */
+@media (max-width: 800px) {
+    .banner-area {
+        min-height: 600px;
+    }
+
+    .banner-area h1 {
+        font-size: 27px;
+    }
+
+    .banner-area h3 {
+        font-size: 20px;
+    }
+
+    .banner-area a.banner-btn {
+        padding: 8px 20px;
+    }
 }
+
 /*about area*/
 
 ul.about-content {
@@ -335,14 +379,29 @@ footer {
 	background-color: #000;
 	padding: 60px 0;
 }
+/* Keyframe for flow-in effect from the left */
+@keyframes flow-in-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px); /* Start from the left */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* End at normal position */
+    }
+}
+
+/* Apply flow-in effect to the entire program schedule */
 .program-schedule {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: space-between;
     margin-top: 20px;
+    animation: flow-in-left 1s ease-out; /* Apply flow-in animation */
 }
 
+/* Daily Schedule Card */
 .daily-schedule {
     flex: 1 1 calc(33.333% - 20px);
     background: #f9f9f9;
@@ -350,6 +409,20 @@ footer {
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: flow-in-left 1s ease-out; /* Apply flow-in animation */
+}
+
+/* Delay for sequential flow-in effect on multiple schedule items */
+.daily-schedule:nth-child(1) {
+    animation-delay: 0.5s; /* Delayed entry for the first item */
+}
+
+.daily-schedule:nth-child(2) {
+    animation-delay: 1s; /* Delayed entry for the second item */
+}
+
+.daily-schedule:nth-child(3) {
+    animation-delay: 1.8; /* Delayed entry for the third item */
 }
 
 .daily-schedule h4 {
@@ -375,6 +448,7 @@ footer {
     margin-right: 8px;
     color: #007BFF;
 }
+
 .services-intro, .services-closing {
     text-align: center;
     font-size: 16px;
@@ -386,4 +460,447 @@ footer {
 .services-closing {
     font-weight: bold;
     color: #333;
+}
+/* Section Styling */
+/* Keyframe for fade-in and flow-in effect */
+@keyframes flow-in {
+    0% {
+        opacity: 0;
+        transform: translateY(30px); /* Start from below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at normal position */
+    }
+}
+
+/* Apply animation to leaders-area */
+.leaders-area {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 30px auto;
+    animation: flow-in 1s ease-out; /* Apply animation */
+}
+
+/* Header and Intro Text */
+.leaders-header {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    animation: flow-in 1s ease-out 0.3s; /* Delay for sequential flow-in */
+}
+
+.leaders-header span {
+    color: #3498db;
+}
+
+.leaders-intro {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 25px;
+    animation: flow-in 1s ease-out 0.5s; /* Delay for sequential flow-in */
+}
+
+/* Leaders Grid */
+.leaders-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Default 4 columns */
+    gap: 20px;
+    justify-content: center;
+    align-items: start;
+    animation: flow-in 1s ease-out 0.7s; /* Delay for sequential flow-in */
+}
+
+/* Leader Card */
+.leader-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.7s ease;
+    animation: flow-in 2.5s ease-out 1s; /* Delay for sequential flow-in */
+}
+
+.leader-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Container */
+.leader-image-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 100%; /* Maintain square ratio */
+    overflow: hidden;
+}
+
+.leader-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.leader-name {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 0;
+}
+
+/* Description */
+.leader-description {
+    font-size: 14px;
+    color: #666;
+    padding: 10px;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .leaders-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller devices */
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .leaders-grid {
+        grid-template-columns: repeat(2, 1fr); /* Maintain 2 columns for mobile view */
+        gap: 10px;
+    }
+
+    .leaders-header {
+        font-size: 24px;
+    }
+
+    .leaders-intro {
+        font-size: 14px;
+    }
+}
+
+/* Departments Section */
+/* Keyframe for flow-in effect from the right */
+@keyframes flow-in-right {
+    0% {
+        opacity: 0;
+        transform: translateX(30px); /* Start from right */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* End at normal position */
+    }
+}
+
+/* Apply animation to departments-area */
+#departments-area {
+    padding: 40px 20px;
+    background-color: #eef2f7; /* Slightly lighter background */
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    max-width: 1200px;
+    animation: flow-in-right 5s ease-out; /* Apply flow-in animation */
+}
+
+/* Title and Intro */
+#departments-title {
+    font-size: 28px;
+    color: #34495e;
+    margin-bottom: 15px;
+    animation: flow-in-right 2.5s ease-out 0.3s; /* Delay for sequential flow-in */
+}
+
+#departments-title span {
+    color: #2980b9;
+}
+
+#departments-intro {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+    animation: flow-in-right 1s ease-out 0.5s; /* Delay for sequential flow-in */
+}
+
+/* Layout */
+#departments-layout {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Add space between departments */
+    flex-wrap: wrap; /* Allows wrapping for smaller screens */
+    animation: flow-in-right 1s ease-out 0.7s; /* Delay for sequential flow-in */
+}
+
+/* Department Card */
+.department-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 350px; /* Ensures cards do not stretch too wide */
+    animation: flow-in-right 1s ease-out 1s; /* Delay for sequential flow-in */
+}
+
+/* Hover effect */
+.department-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Containers */
+.department-image-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 75%; /* Aspect ratio */
+    overflow: hidden;
+}
+
+.department-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Text Content */
+.department-name {
+    font-size: 18px;
+    color: #2c3e50;
+    margin: 15px 0 10px;
+}
+
+.department-description {
+    font-size: 14px;
+    color: #666;
+    padding: 0 10px 20px;
+    line-height: 1.6;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    #departments-area {
+        padding: 20px; /* Reduce padding for mobile view */
+    }
+
+    #departments-title {
+        font-size: 22px; /* Adjust title font size for smaller screens */
+    }
+
+    #departments-intro {
+        font-size: 14px; /* Adjust intro font size */
+        margin-bottom: 20px;
+    }
+
+    #departments-layout {
+        flex-direction: column; /* Stack departments vertically on smaller screens */
+        gap: 30px; /* Increase gap between departments on smaller screens */
+        justify-content: center; /* Center the content */
+    }
+
+    .department-card {
+        max-width: 100%; /* Ensure the department card does not exceed the screen width */
+        width: 100%; /* Take up the full width on mobile */
+        margin: 0 auto; /* Center the cards */
+    }
+
+    .department-image-container {
+        padding-top: 60%; /* Adjust aspect ratio for mobile */
+    }
+
+    .department-name {
+        font-size: 16px; /* Smaller font size for department name */
+    }
+
+    .department-description {
+        font-size: 12px; /* Adjust description text for smaller screens */
+    }
+}
+
+
+
+.last{
+	padding-top: 1rem;
+}/* General Styles */
+.services-container {
+    padding: 4rem 2rem;
+    background-color: #f9fafb; /* Light gray background */
+    text-align: center;
+}
+
+.services-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #19191a; /* Dark color for the heading */
+    margin-bottom: 2rem;
+}
+
+.highlight {
+    color: #6366f1; /* Lighter blue for the highlighted part */
+}
+
+.services-introduction {
+    font-size: 1.125rem;
+    color: #4b5563; /* Dark gray text */
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.services-list {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.service-item {
+    background-color: #ffffff; /* White background */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 45%; /* Two items side by side */
+    height: 250px; /* Fixed height for the service item */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Darken the background of the service item */
+.service-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay on top of the image */
+    z-index: 1; /* Ensure it stays above the background image but below the text */
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    color: white; /* Bright white text */
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2; /* Make sure text appears above the overlay */
+}
+
+.service-item:hover .service-text {
+    opacity: 1;
+}
+
+.service-icon {
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 1rem;
+}
+
+.service-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white; /* White text for the title */
+    margin-bottom: 0.75rem;
+}
+
+.service-description {
+    color: white; /* White text for the description */
+    font-size: 1rem;
+}
+
+.services-closing {
+    font-size: 1.125rem;
+    color: #4b5563;
+    margin-top: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Initial state for the logo container */
+.logo-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center it on the screen */
+    opacity: 1; /* Initially visible */
+    animation: logo-fade-in 2s ease-out forwards, logo-fade-out 2s ease-out 2s; /* Fade in and then fade out after delay */
+    z-index: 9999; /* Ensure it's above other content */
+}
+
+/* Keyframes for logo fade-in */
+@keyframes logo-fade-in {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5); /* Start small and hidden */
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1); /* End normal size */
+    }
+}
+
+/* Keyframes for logo fade-out (after it finishes appearing) */
+@keyframes logo-fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* After the logo animation finishes, the rest of the content should appear */
+.main-content {
+    visibility: hidden; /* Initially invisible, but still in layout */
+    opacity: 0; /* Make invisible */
+    animation: show-content 0.5s ease-out 2s forwards; /* Delay content appearance until logo fades out */
+}
+
+/* Keyframe for showing main content */
+@keyframes show-content {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
 }
