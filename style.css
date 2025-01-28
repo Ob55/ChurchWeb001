@@ -474,7 +474,7 @@ footer {
     }
 }
 
-/* Apply animation to leaders-area */
+/* General Section Styling */
 .leaders-area {
     padding: 40px 20px;
     background-color: #f9f9f9;
@@ -483,7 +483,7 @@ footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 1200px;
     margin: 30px auto;
-    animation: flow-in 1s ease-out; /* Apply animation */
+    animation: flow-in 1s ease-out;
 }
 
 /* Header and Intro Text */
@@ -491,7 +491,7 @@ footer {
     font-size: 28px;
     color: #2c3e50;
     margin-bottom: 15px;
-    animation: flow-in 1s ease-out 0.3s; /* Delay for sequential flow-in */
+    animation: flow-in 1s ease-out 0.3s;
 }
 
 .leaders-header span {
@@ -502,17 +502,17 @@ footer {
     font-size: 16px;
     color: #555;
     margin-bottom: 25px;
-    animation: flow-in 1s ease-out 0.5s; /* Delay for sequential flow-in */
+    animation: flow-in 1s ease-out 0.5s;
 }
 
 /* Leaders Grid */
 .leaders-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Default 4 columns */
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     justify-content: center;
     align-items: start;
-    animation: flow-in 1s ease-out 0.7s; /* Delay for sequential flow-in */
+    animation: flow-in 1s ease-out 0.7s;
 }
 
 /* Leader Card */
@@ -523,7 +523,7 @@ footer {
     overflow: hidden;
     text-align: center;
     transition: all 0.7s ease;
-    animation: flow-in 2.5s ease-out 1s; /* Delay for sequential flow-in */
+    animation: flow-in 2.5s ease-out 1s;
 }
 
 .leader-card:hover {
@@ -536,7 +536,7 @@ footer {
     position: relative;
     width: 100%;
     height: 0;
-    padding-top: 100%; /* Maintain square ratio */
+    padding-top: 100%;
     overflow: hidden;
 }
 
@@ -573,14 +573,14 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
     .leaders-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller devices */
+        grid-template-columns: repeat(2, 1fr);
         gap: 15px;
     }
 }
 
 @media (max-width: 480px) {
     .leaders-grid {
-        grid-template-columns: repeat(2, 1fr); /* Maintain 2 columns for mobile view */
+        grid-template-columns: repeat(1, 1fr);
         gap: 10px;
     }
 
@@ -590,6 +590,18 @@ footer {
 
     .leaders-intro {
         font-size: 14px;
+    }
+}
+
+/* Keyframes for Animation */
+@keyframes flow-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
